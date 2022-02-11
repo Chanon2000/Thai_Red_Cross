@@ -1,0 +1,107 @@
+<!-- <p>info-product works!</p> -->
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">ข้อมูลจำนวนส่วนประกอบโลหิต</h1>
+        <a routerLink="/member/manage-product" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas  fa-sm text-white-50"></i>ดูข้อมูลส่วนประกอบโลหิตเพิ่มเติม</a>
+    </div>
+    <div class="card shadow mb-4">
+        
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">ข้อมูลจำนวนส่วนประกอบโลหิตแต่ละประเภท</h6>
+        </div>
+        
+        <!-- Content Row -->
+        <div class="card-body">
+            <div class="row">
+
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">จำนวน พลาสม่า</div>
+                                    
+                                    <div class="text-xs font-weight-bold text-gray text-uppercase mb-1 ml-2 mt-2">
+                                        กรุ๊ปเลือด A:<span class="text-xs font-weight-bold text-primary text-uppercase ml-1">{{this.countProduct?.Plasma_A}}</span></div>
+
+                                    <div class="text-xs font-weight-bold text-gray text-uppercase mb-1 ml-2">
+                                        กรุ๊ปเลือด B:<span class="text-xs font-weight-bold text-primary text-uppercase ml-1">{{this.countProduct?.Plasma_B}}</span></div>
+
+                                    <div class="text-xs font-weight-bold text-gray text-uppercase mb-1 ml-2">
+                                        กรุ๊ปเลือด AB:<span class="text-xs font-weight-bold text-primary text-uppercase ml-1">{{this.countProduct?.Plasma_AB}}</span></div>
+
+                                    <div class="text-xs font-weight-bold text-gray text-uppercase mb-1 ml-2">
+                                        กรุ๊ปเลือด O:<span class="text-xs font-weight-bold text-primary text-uppercase ml-1">{{this.countProduct?.Plasma_O}}</span></div>
+                                    
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-success shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">จำนวน เม็ดเลือดแดง</div>
+
+                                    <div class="text-xs font-weight-bold text-gray text-uppercase mb-1 ml-2 mt-2">
+                                        กรุ๊ปเลือด A:<span class="text-xs font-weight-bold text-success text-uppercase ml-1">{{this.countProduct?.BCs_A}}</span></div>
+
+                                    <div class="text-xs font-weight-bold text-gray text-uppercase mb-1 ml-2 ">
+                                        กรุ๊ปเลือด B:<span class="text-xs font-weight-bold text-success text-uppercase ml-1">{{this.countProduct?.BCs_B}}</span></div>
+
+                                    <div class="text-xs font-weight-bold text-gray text-uppercase mb-1 ml-2 ">
+                                        กรุ๊ปเลือด AB:<span class="text-xs font-weight-bold text-success text-uppercase ml-1">{{this.countProduct?.BCs_AB}}</span></div>
+
+                                    <div class="text-xs font-weight-bold text-gray text-uppercase mb-1 ml-2 ">
+                                        กรุ๊ปเลือด O:<span class="text-xs font-weight-bold text-success text-uppercase ml-1">{{this.countProduct?.BCs_O}}</span></div>
+                                    
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-4 col-md-6 mb-4">
+                    <div class="card border-left-info shadow h-100 py-2">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800">จำนวน เกล็ดเลือด</div>
+
+                                    <div class="text-xs font-weight-bold text-gray text-uppercase mb-1 ml-2 mt-2">
+                                        กรุ๊ปเลือด A:<span class="text-xs font-weight-bold text-info text-uppercase ml-1">{{this.countProduct?.Platelets_A}}</span></div>
+
+                                    <div class="text-xs font-weight-bold text-gray text-uppercase mb-1 ml-2 ">
+                                        กรุ๊ปเลือด B:<span class="text-xs font-weight-bold text-info text-uppercase ml-1">{{this.countProduct?.Platelets_B}}</span></div>
+
+                                    <div class="text-xs font-weight-bold text-gray text-uppercase mb-1 ml-2 ">
+                                        กรุ๊ปเลือด AB:<span class="text-xs font-weight-bold text-info text-uppercase ml-1">{{this.countProduct?.Platelets_AB}}</span></div>
+
+                                    <div class="text-xs font-weight-bold text-gray text-uppercase mb-1 ml-2 ">
+                                        กรุ๊ปเลือด O:<span class="text-xs font-weight-bold text-info text-uppercase ml-1">{{this.countProduct?.Platelets_O}}</span></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+</div>
+

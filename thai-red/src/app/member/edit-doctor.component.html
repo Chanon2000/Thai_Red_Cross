@@ -1,0 +1,74 @@
+<!-- <p>edit-doctor works!</p> -->
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">ข้อมูลหมอ</h1>
+        <a routerLink="/member/register-role" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas  fa-sm text-white-50"></i>Register Member/Doctor</a>
+    </div>
+    <!-- <h1 class="h3 mb-2 text-gray-800">ข้อมูลหมอ</h1> -->
+    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+            href="https://datatables.net">official DataTables documentation</a>.</p> -->
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">ตารางข้อมูลหมอทั้งหมด</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div style="height:500px;width:auto;overflow:auto;" >
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ชื่อ</th>
+                            <th>นามสกุล</th>
+                            <th>เพศ</th>
+                            <th>อายุ</th>
+                            <th>ที่อยู่</th>
+                            <th>เบอร์โทรศัพท์</th>
+                            <th>วันเริ่มทำงาน</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ชื่อ</th>
+                            <th>นามสกุล</th>
+                            <th>เพศ</th>
+                            <th>อายุ</th>
+                            <th>ที่อยู่</th>
+                            <th>เบอร์โทรศัพท์</th>
+                            <th>วันเริ่มทำงาน</th>
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr  *ngFor="let emp of users">
+                            <td>{{emp.firstName}}</td>
+                            <td>{{emp.lastName}}</td>
+                            <td *ngIf="emp.sex == 0">ชาย</td>
+                            <td *ngIf="emp.sex == 1">หญิง</td>
+                            <td>{{emp.Age}}</td>
+                            <td>{{emp.Address}}</td>
+                            <td>{{emp.PhoneNumber}}</td>
+                            <td>{{emp.StartDate}}</td>
+                            <td>
+                                <button type="button" class="btn btn-info" routerLink="/member/edit-doctor/{{emp.Employee_ID}}">ข้อมูล</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <app-edit-doctor-detail [doctor]="selectedDoctor" (doctorChange)="update($event)"></app-edit-doctor-detail> -->
+<!-- คือmethod update ใน coponent นี้นี่แหละ  -->
+
+            

@@ -1,0 +1,66 @@
+
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    <form class="user" [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+                                        <div class="form-group">
+                                            <input type="text" formControlName="Username" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Enter Username..." [ngClass]="{ 'is-invalid': submitted && f.Username.errors }">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" formControlName="Password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }">
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Remember
+                                                    Me</label>
+                                            </div>
+                                        </div> -->
+                                        <!-- <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                            Login
+                                        </a> -->
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                                        
+                                        <button type="reset" class="btn btn-danger btn-user btn-block" (click)="onReset()">Reset</button>
+                                        <hr>
+                                        
+                                    </form>
+                                    
+                                    <div class="text-center">
+                                        <a class="small" (click)="showAlert()">Account for Demo click here!!!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- {{clickedAlert}} -->
+                <div *ngIf="clickedAlert === true">
+                    <div  class="alert alert-info">
+                        <a class="close" (click)="removeAlert()">&times;</a>
+                        <label>เจ้าหน้าที่:</label>
+                        <label style="padding-left:1em">Username: ssssss</label>
+                        <label>, Password: ssssss</label>
+                        <br>
+                        <label style="padding-left:2em">หมอ:</label>
+                        <label style="padding-left:1em">Username: aaaaaa</label>
+                        <label>, Password: aaaaaa</label>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>

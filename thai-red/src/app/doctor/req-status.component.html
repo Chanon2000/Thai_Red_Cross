@@ -1,0 +1,59 @@
+<!-- <p>req-status works!</p> -->
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">ข้อมูลการใช้โลหิตของ {{user?.firstName}} {{user?.lastName}}</h1>
+        <!-- <a routerLink="/member/create-donor" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas  fa-sm text-white-50"></i>เพิ่มข้อมูลผู้บริจาค</a> -->
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">ตารางข้อมูลการขอใช้เลือด</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive mr-10">
+                <div style="height:500px;width:auto;overflow:auto;">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <th>รหัสคำขอใช้โลหิต</th>
+                            <!-- <th>ผู้ทำการขอใช้โลหิต</th> -->
+                            <th>กรุ๊ปเลือด</th>
+                            <th>พลาสม่า : เม็ดเลือดแดง : เกล็ดเลือด</th>
+                            <!-- <th>จำนวนเม็ดเลือดแดง</th>
+                            <th>จำนวนเกล็ดเลือด</th> -->
+                            <th>วันที่สั่ง</th>
+                            <th>สถานะ</th>
+                            <!-- <th>ผู้ดำเนินการ</th> -->
+                        </thead>
+                        <tfoot>
+                            <th>รหัสคำขอใช้โลหิต</th>
+                            <!-- <th>ผู้ทำการขอใช้โลหิต</th> -->
+                            <th>กรุ๊ปเลือด</th>
+                            <th>พลาสม่า : เม็ดเลือดแดง : เกล็ดเลือด</th>
+                            <!-- <th>จำนวนเม็ดเลือดแดง</th>
+                            <th>จำนวนเกล็ดเลือด</th> -->
+                            <th>วันที่สั่ง</th>
+                            <th>สถานะ</th>
+                            <!-- <th>ผู้ดำเนินการ</th> -->
+                        </tfoot>
+                        <tbody>
+                            <tr *ngFor="let order of orders">
+                                <td>{{order.Order_ID}}</td>
+                                <!-- <td></td> -->
+                                <td>{{order.Bgroup}}</td>
+                                <td>{{order.Plasma_num}} ถุง : {{order.BCs_num}} ถุง : {{order.Platelets_num}} ถุง</td>
+                                <!-- <td>{{order.BCs_num}} ถุง</td>
+                                <td>{{order.Platelets_num}} ถุง</td> -->
+                                <td>{{order.Order_date}}</td>
+                                <td *ngIf="order.Status == 0">รอดำเนินการ...</td>
+                                <td *ngIf="order.Status == 1">ได้รับการอนุมัติ</td>
+                                <td *ngIf="order.Status == 2">ถูกยกเลิก</td>
+                                <!-- <td>{{order.Endorser_ID}}</td> -->
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

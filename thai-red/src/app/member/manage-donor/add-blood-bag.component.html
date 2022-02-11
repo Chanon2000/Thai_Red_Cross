@@ -1,0 +1,110 @@
+<!-- <p>add-blood-bag works!</p> -->
+
+<!-- ฟอร์มยืนยันการบริจาคเลือด -->
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">ฟอร์มยืนยันการบริจาคเลือด</h6>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="addBBForm" (ngSubmit)="addBloodBag()">
+
+                <!-- BloodBag_ID  // hidden เอาไว้ -->
+                <input type="hidden" class="form-control" formControlName="BloodBag_ID" >
+
+                
+
+
+                <!-- PhleCode (รหัสพนักงานเจาะเลือด) / ทำให้เป็น dropdown-->
+                <div class="form-group row">
+                    <div class="form-group col-sm-6 mb-3 mb-sm-0">
+                        <label>ชื่อนักงานเจาะเลือด</label>
+                        <div class="ui-select">
+                            <select  formControlName="PhleCode" class="form-control">
+                                <option value=1>james smith</option>
+                                <option value=2>michael smith</option>
+                                <option value=3>robert smith</option>
+                                <option value=4>david smith</option>
+                                <option value=5>james johnson</option>
+                                <option value=6>robert smith</option>
+                                <option value=7>david johnson</option>
+                                <option value=8>maria garcia</option>
+                                <option value=9>michael brown</option>
+                                <option value=10>james jones</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <!-- DateofDonate -->
+                    <div class="form-group col-sm-6 mb-3 mb-sm-0">
+                        <label>วันที่เจาะเลือด</label>
+                        <input type="date" class="form-control" formControlName="DateofDonate" [ngClass]="{'is-invalid':submitted && f.DateofDonate.errors}">
+                        <!-- err -->
+                        <div *ngIf="submitted && f.DateofDonate.errors" class="invalid-feedback">
+                            <div *ngIf="f.DateofDonate.errors.required">
+                                วันที่เจาะเลือด is Required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Bgroup // ห้ามแก้ -->
+                <div class="form-group row">
+                    
+
+
+                    <!-- volum // ทำให้เป็น dropdown -->
+                    <div class="form-group col-sm-6 mb-3 mb-sm-0">
+                        <label>ปริมาณเลือดที่ได้ (มิลลิลิตร)</label>
+                        <div class="ui-select">
+                            <select  formControlName="volum" class="form-control">
+                                <option value=350>350 ml</option>
+                                <option value=360>360 ml</option>
+                                <option value=370>370 ml</option>
+                                <option value=380>380 ml</option>
+                                <option value=390>390 ml</option>
+                                <option value=400>400 ml</option>
+                                <option value=410>410 ml</option>
+                                <option value=420>420 ml</option>
+                                <option value=430>430 ml</option>
+                                <option value=440>440 ml</option>
+                                <option value=450>450 ml</option>
+                            </select>
+                        </div>
+                        <!-- err -->
+                        <div *ngIf="submitted && f.volum.errors" class="invalid-feedback">
+                            <div *ngIf="f.volum.errors.required">
+                                volum is Required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Donor_ID -->
+                <input type="hidden" class="form-control" formControlName="Donor_ID">
+
+
+
+                <!-- Test_Status อยากตัดทิ้ง หรือ เอาเป็น auto ว่าผ่านเลย  // ใส่เอาไว้เลยให้เป็นผ่าน ( = 1)-->
+                <input type="hidden" class="form-control" formControlName="Test_Status" value=1>
+
+                <!-- Status  // hidden เอาไว้-->
+                <input type="hidden" class="form-control" formControlName="Status">
+
+                <button type="submit" class="btn btn-primary mr-1">เพิ่มถุงเลือด</button>
+                <a routerLink="/member/manage-donor" class="btn btn-dark">Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+

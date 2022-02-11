@@ -1,0 +1,87 @@
+<!-- <p>manage-bloodbag works!</p> -->
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">ข้อมูลถุงเลือด (Blood Bag)</h1>
+        <!-- <a routerLink="/member/create-donor" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas  fa-sm text-white-50"></i>เพิ่มข้อมูลผู้บริจาค</a> -->
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">ตารางข้อมูลถุงเลือดที่ยังไม่ได้คัดแยก</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive mr-10">
+                <div style="height:500px;width:auto;overflow:auto;">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>รหัสถุงเลือด</th>
+                                <th>ชื่อพนักงานเจาะเลือด</th>
+                                <th>วันที่บริจาคเลือด</th>
+                                <th>กรุ๊ปเลือด</th>
+                                <th>ปริมาตร</th>
+                                <!-- <th>ผลทดสอบถุงเลือด</th> -->
+                                <!-- <th>ชื่อผู้บริจาค</th> -->
+                                <!-- <th>Status</th> -->
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>รหัสถุงเลือด</th>
+                                <th>ชื่อพนักงานเจาะเลือด</th>
+                                <th>วันที่บริจาคเลือด</th>
+                                <th>กรุ๊ปเลือด</th>
+                                <th>ปริมาตร</th>
+                                <!-- <th>ผลทดสอบถุงเลือด</th> -->
+                                <!-- <th>ชื่อผู้บริจาค</th> -->
+                                <!-- <th>Status</th> -->
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr *ngFor="let bb of bloodbags">
+                                <td>{{bb.BloodBag_ID}}</td>
+                                <td *ngIf="bb.PhleCode == 1">james smith</td>
+                                <td *ngIf="bb.PhleCode == 2">michael smith</td>
+                                <td *ngIf="bb.PhleCode == 3">robert smith</td>
+                                <td *ngIf="bb.PhleCode == 4">david smith</td>
+                                <td *ngIf="bb.PhleCode == 5">james johnson</td>
+                                <td *ngIf="bb.PhleCode == 6">robert smith</td>
+                                <td *ngIf="bb.PhleCode == 7">david johnson</td>
+                                <td *ngIf="bb.PhleCode == 8">maria garcia</td>
+                                <td *ngIf="bb.PhleCode == 9">michael brown</td>
+                                <td *ngIf="bb.PhleCode == 10">james jones</td>
+                                <td>{{bb.DateofDonate}}</td>
+                                <td>{{bb.Bgroup}}</td>
+                                <td>{{bb.volum}}</td>
+                                <!-- <td *ngIf="bb.Test_Status == 1">สามารถคัดแยกได้(ผ่าน)</td> -->
+                                <!-- <td *ngIf="getDonorName(bb.Donor_ID)">{{name}}</td> -->
+                                <!-- <td>{{bb.Status}}</td> -->
+                                <td>
+                                    <button type="button" class="btn btn-info" routerLink="/member/edit-bloodbag/{{bb.BloodBag_ID}}">ข้อมูล</button>
+                                    <button type="button" class="btn btn-success ml-1" routerLink="/member/add-product/{{bb.BloodBag_ID}}">คัดแยกถุงโลหิต</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<!-- ตาราง -->
+
+
+
+
+
+
+
+
+
+
+<!-- แก้ไข Bloodbag -->
+<!-- คัดแยก (เปลี่ยน Bloodbag เป็ย Product) -->

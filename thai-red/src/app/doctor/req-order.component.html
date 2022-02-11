@@ -1,0 +1,120 @@
+<!-- <p>req-order works!</p> -->
+<div class="container-fluid">
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">ส่งคำขอใช้โลหิต</h6>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="reqOrderForm" (ngSubmit)="addOrder()">
+                <!-- Order_ID -->
+                <input type="hidden" class="form-control" formControlName="Order_ID">
+                <!-- Order_date -->
+                <input type="hidden" class="form-control" formControlName="Order_date">
+                <!-- Status -->
+                <input type="hidden" class="form-control" formControlName="Status">
+                <!-- Endorser_ID -->
+                <input type="hidden" class="form-control" formControlName="Endorser_ID">
+                <!-- Employee_ID // ใส่ id ของ user ที่ login ลงไป -->
+                <input type="hidden" class="form-control" formControlName="Employee_ID">
+
+                <!-- เลือกกรุ๊ปเลือด (Bgroup) -->
+            <div class="form-group row">
+                <div class="form-group col-sm-2 mb-3 mb-sm-0">
+                    <label for="Bgroup" >กรุ๊ปเลือด</label>
+                    <div class="ui-select">
+                        <select  formControlName="Bgroup" class="form-control" [ngClass]="{'is-invalid':submitted && f.Bgroup.errors}">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="AB">AB</option>
+                            <option value="O">O</option>
+                        </select>
+                        <!-- err -->
+                        <div *ngIf="submitted && f.Bgroup.errors" class="invalid-feedback">
+                            <div *ngIf="f.Bgroup.errors.required">
+                                ต้องใส่กรุ๊ปเลือด
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- เลือกจำนวน Plasma (Plasma_num) -->
+                
+                    <div class="form-group col-sm-3 mb-3 mb-sm-0">
+                        <label>จำนวนถุง พลาสม่า</label>
+                        <div class="ui-select">
+                            <select  formControlName="Plasma_num" class="form-control">
+                                <option value=0>0 ถุง</option>
+                                <option value=1>1 ถุง (75 ml เท่านั้น)</option>
+                                <option value=2>2 ถุง (75 ml เท่านั้น)</option>
+                                <option value=3>3 ถุง (75 ml เท่านั้น)</option>
+                                <option value=4>4 ถุง (75 ml เท่านั้น)</option>
+                                <option value=5>5 ถุง (75 ml เท่านั้น)</option>
+                                <option value=6>6 ถุง (75 ml เท่านั้น)</option>
+                                <option value=7>7 ถุง (75 ml เท่านั้น)</option>
+                                <option value=8>8 ถุง (75 ml เท่านั้น)</option>
+                                <option value=9>9 ถุง (75 ml เท่านั้น)</option>
+                                <option value=10>10 ถุง (75 ml เท่านั้น)</option>
+                            </select>
+                        </div>
+                    </div>
+                
+
+
+                <!-- เลือกจำนวน เม็ดเลือดแดง (BCs_num) -->
+                
+                    <div class="form-group col-sm-3 mb-3 mb-sm-0">
+                        <label>จำนวนถุง เม็ดเลือดแดง</label>
+                        <div class="ui-select">
+                            <select  formControlName="BCs_num" class="form-control">
+                                <option value=0>0 ถุง</option>
+                                <option value=1>1 ถุง (75 ml เท่านั้น)</option>
+                                <option value=2>2 ถุง (75 ml เท่านั้น)</option>
+                                <option value=3>3 ถุง (75 ml เท่านั้น)</option>
+                                <option value=4>4 ถุง (75 ml เท่านั้น)</option>
+                                <option value=5>5 ถุง (75 ml เท่านั้น)</option>
+                                <option value=6>6 ถุง (75 ml เท่านั้น)</option>
+                                <option value=7>7 ถุง (75 ml เท่านั้น)</option>
+                                <option value=8>8 ถุง (75 ml เท่านั้น)</option>
+                                <option value=9>9 ถุง (75 ml เท่านั้น)</option>
+                                <option value=10>10 ถุง (75 ml เท่านั้น)</option>
+                            </select>
+                        </div>
+                    </div>
+                
+
+
+                <!-- เลือกจำนวน เกร็ดเลือด (Platelets_num) -->
+                
+                    <div class="form-group col-sm-3 mb-3 mb-sm-0">
+                        <label>จำนวนถุง เกร็ดเลือด</label>
+                        <div class="ui-select">
+                            <select  formControlName="Platelets_num" class="form-control">
+                                <option value=0>0 ถุง</option>
+                                <option value=1>1 ถุง (75 ml เท่านั้น)</option>
+                                <option value=2>2 ถุง (75 ml เท่านั้น)</option>
+                                <option value=3>3 ถุง (75 ml เท่านั้น)</option>
+                                <option value=4>4 ถุง (75 ml เท่านั้น)</option>
+                                <option value=5>5 ถุง (75 ml เท่านั้น)</option>
+                                <option value=6>6 ถุง (75 ml เท่านั้น)</option>
+                                <option value=7>7 ถุง (75 ml เท่านั้น)</option>
+                                <option value=8>8 ถุง (75 ml เท่านั้น)</option>
+                                <option value=9>9 ถุง (75 ml เท่านั้น)</option>
+                                <option value=10>10 ถุง (75 ml เท่านั้น)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- submit -->
+                <button type="submit" class="btn btn-primary mr-1">เพิ่มคำขอ</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+

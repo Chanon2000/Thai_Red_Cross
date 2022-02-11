@@ -1,0 +1,66 @@
+<!-- <p>manage-product works!</p> -->
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">ข้อมูลส่วนประกอบโลหิต</h1>
+        <a routerLink="/member/info-product" class="d-none d-sm-inline-block btn btn-sm btn-dark shadow-sm"><i
+                class="fas  fa-sm text-white-50"></i>Back</a>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">ตารางข้อมูลส่วนประกอบโลหิตแต่ละถุง</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive mr-10">
+                <div style="height:500px;width:auto;overflow:auto;">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>รหัสส่วนประกอบโลหิต</th>
+                                <th>ชนิตส่วนประกอบโลหิต</th>
+                                <th>รหัสถุงโลหิต</th>
+                                <th>ปริมาตร</th>
+                                <!-- <th>Test_Status</th> -->
+                                <th>สถานะ</th>
+                               
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>รหัสส่วนประกอบโลหิต</th>
+                                <th>ชนิตส่วนประกอบโลหิต</th>
+                                <th>รหัสถุงโลหิต</th>
+                                <th>ปริมาตร</th>
+                                <!-- <th>Test_Status</th> -->
+                                <th>สถานะ</th>
+                                
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr *ngFor="let p of products">
+                                <td>{{p.Product_ID}}</td>
+                                <td *ngIf="p.Protype_ID == 101">พลาสม่า กรุ๊ป A</td>
+                                <td *ngIf="p.Protype_ID == 102">พลาสม่า กรุ๊ป B</td>
+                                <td *ngIf="p.Protype_ID == 103">พลาสม่า กรุ๊ป AB</td>
+                                <td *ngIf="p.Protype_ID == 104">พลาสม่า กรุ๊ป O</td>
+                                <td *ngIf="p.Protype_ID == 105">เม็ดเลือดแดง กรุ๊ป A</td>
+                                <td *ngIf="p.Protype_ID == 106">เม็ดเลือดแดง กรุ๊ป B</td>
+                                <td *ngIf="p.Protype_ID == 107">เม็ดเลือดแดง กรุ๊ป AB</td>
+                                <td *ngIf="p.Protype_ID == 108">เม็ดเลือดแดง กรุ๊ป O</td>
+                                <td *ngIf="p.Protype_ID == 109">เกล็ดเลือด กรุ๊ป A</td>
+                                <td *ngIf="p.Protype_ID == 110">เกล็ดเลือด กรุ๊ป B</td>
+                                <td *ngIf="p.Protype_ID == 111">เกล็ดเลือด กรุ๊ป AB</td>
+                                <td *ngIf="p.Protype_ID == 112">เกล็ดเลือด กรุ๊ป O</td>
+                                <td>{{p.BloodBag_ID}}</td>
+                                <td>{{p.volum}}</td>
+                                <!-- <td>{{p.Test_Status}}</td> -->
+                                <td *ngIf="p.Status == 1">ยังอยู่ในคลัง</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,227 @@
+<!-- <p>edit-donor-detail works!</p> -->
+<div class="container-fluid">
+    <!-- <h1 class="h3 mb-2 text-gray-800">Tables</h1> -->
+    
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">แก้ไขข้อมูลผู้บริจาค</h6>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="editDonorForm" (ngSubmit)="update()">
+
+                <!-- Donor_ID -->
+                <div class="form-group col-sm-6 mb-3 mb-sm-0">
+                    <input type="hidden" class="form-control" formControlName="Donor_ID">
+                </div>
+
+
+                <!-- NIN -->
+                <div class="form-group row">
+                    <div class="form-group col-sm-6 mb-3 mb-sm-0">
+                        <label>เลขประจำตัวประชาชน</label>
+                        <input type="text" class="form-control" formControlName="NIN" [ngClass]="{'is-invalid':submitted && f.NIN.errors}">
+                        <!-- err -->
+                        <div *ngIf="submitted && f.NIN.errors" class="invalid-feedback">
+                            <div *ngIf="f.NIN.errors.required">
+                                เลขประจำตัวประชาชน is Required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- firstName -->
+                <div class="form-group row">
+                    <div class="form-group col-sm-6 mb-3 mb-sm-0">
+                        <label>First Name</label>
+                        <input type="text" class="form-control" formControlName="firstName" [ngClass]="{'is-invalid':submitted && f.firstName.errors}">
+                        <!-- err -->
+                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                            <div *ngIf="f.firstName.errors.required">
+                                First Name is Required
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- lastName -->
+                    <div class="form-group col-sm-6">
+                        <label>Last Name</label>
+                        <input type="text" class="form-control" formControlName="lastName" [ngClass]="{'is-invalid':submitted && f.lastName.errors}">
+                        <!-- err -->
+                        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                            <div *ngIf="f.lastName.errors.required">
+                                Last Name is Required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- sex -->
+                <div class="form-group row">
+                    <div class="form-group col-sm-2 mb-3 mb-sm-0">
+                        <label for="sex" >เพศ</label>
+                        <div class="ui-select">
+                            <select  formControlName="sex" class="form-control">
+                            <option value="0">male</option>
+                            <option value="1">female</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <!-- Age -->
+                    <div class="col-sm-2 ">
+                        <label>อายุ</label>
+                        <input type="number" class="form-control" formControlName="Age" [ngClass]="{'is-invalid':submitted && f.Age.errors}">
+                        <!-- err -->
+                        <div *ngIf="submitted && f.Age.errors" class="invalid-feedback">
+                            <div *ngIf="f.Age.errors.required">
+                                Age is Required
+                            </div>
+                        </div>
+                    </div>
+                
+
+
+
+                <!-- Brithday -->
+                
+                    <div class="form-group col-sm-3 mb-3 mb-sm-0">
+                        <label>วันเกิด</label>
+                        <input type="date" class="form-control" formControlName="Brithday" [ngClass]="{'is-invalid':submitted && f.Brithday.errors}">
+                        <!-- err -->
+                        <div *ngIf="submitted && f.Brithday.errors" class="invalid-feedback">
+                            <div *ngIf="f.Brithday.errors.required">
+                                Brithday is Required
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Cdisease -->
+                    <div class="form-group col-sm-5 ">
+                        <label>โรคประจำตัว</label>
+                        <input type="text" class="form-control" formControlName="Cdisease" [ngClass]="{'is-invalid':submitted && f.Cdisease.errors}">
+                        <!-- err -->
+                        <div *ngIf="submitted && f.Cdisease.errors" class="invalid-feedback">
+                            <div *ngIf="f.Cdisease.errors.required">
+                                โรคประจำตัว is Required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Bgroup -->
+                <div class="form-group row">
+                    <div class="form-group col-sm-2 mb-3 mb-sm-0">
+                        <label for="Bgroup" >กรุ๊ปเลือด</label>
+                        <div class="ui-select">
+                            <select  formControlName="Bgroup" class="form-control">
+                                <option value="A">A</option>
+                                <option value="B">B</option>
+                                <option value="C">C</option>
+                                <option value="AB">AB</option>
+                                <option value="O">O</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <!-- weight -->
+                    <div class="form-group col-sm-2">
+                        <label>นำ้หนัก</label>
+                        <input type="number" class="form-control" formControlName="weight" [ngClass]="{'is-invalid':submitted && f.weight.errors}">
+                        <!-- err -->
+                        <div *ngIf="submitted && f.weight.errors" class="invalid-feedback">
+                            <div *ngIf="f.weight.errors.required">
+                                นำ้หนัก is Required
+                            </div>
+                        </div>
+                    </div>
+                
+
+
+                <!-- Address -->
+                
+                    <div class="form-group col-sm-6 mb-3 mb-sm-0">
+                        <label>ที่อยู่</label>
+                        <input type="text" class="form-control" formControlName="Address" [ngClass]="{'is-invalid':submitted && f.Address.errors}">
+                        <!-- err -->
+                        <div *ngIf="submitted && f.Address.errors" class="invalid-feedback">
+                            <div *ngIf="f.Address.errors.required">
+                                Address is Required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                    <!-- PhoneNumber -->
+                <div class="form-group row">
+                    <div class="form-group col-sm-3">
+                        <label>เบอร์โทรศัพท์</label>
+                        <input type="text" class="form-control" formControlName="PhoneNumber" [ngClass]="{'is-invalid':submitted && f.PhoneNumber.errors}">
+                        <!-- err -->
+                        <div *ngIf="submitted && f.PhoneNumber.errors" class="invalid-feedback">
+                            <div *ngIf="f.PhoneNumber.errors.required">
+                                PhoneNumber is Required
+                            </div>
+                        </div>
+                    </div>
+                
+
+
+
+
+                <!-- Email -->
+                
+                    <div class="form-group col-sm-5 mb-3 mb-sm-0">
+                        <label>email</label>
+                        <input type="email" class="form-control" formControlName="Email" [ngClass]="{'is-invalid':submitted && f.Email.errors}">
+                        <!-- err -->
+                        <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                            <div *ngIf="f.Email.errors.required">
+                                Email is Required
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <!-- Career -->
+                    <div class="form-group col-sm-6">
+                        <label>อาชีพ</label>
+                        <input type="text" class="form-control" formControlName="Career" [ngClass]="{'is-invalid':submitted && f.Career.errors}">
+                        <!-- err -->
+                        <div *ngIf="submitted && f.Career.errors" class="invalid-feedback">
+                            <div *ngIf="f.Career.errors.required">
+                                Career is Required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- status -->
+                <input type="hidden" class="form-control" formControlName="Status">
+
+
+
+                <!-- กด submit จะสั่ง update -->
+                <button type="submit" class="btn btn-primary mr-1">แก้ไข</button>
+                <a routerLink="/member/manage-donor" class="btn btn-dark">Back</a>
+            </form>
+        </div>
+    </div>
+</div>

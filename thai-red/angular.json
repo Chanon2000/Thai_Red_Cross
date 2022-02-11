@@ -1,0 +1,150 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "f82fdf12-beb9-4e11-b2a6-36422b870aee"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "thai-red": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/thai-red",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/startbootstrap-sb-admin-2/vendor/fontawesome-free/css/all.min.css",
+              "node_modules/startbootstrap-sb-admin-2/css/sb-admin-2.css",
+              "node_modules/startbootstrap-sb-admin-2/vendor/datatables/dataTables.bootstrap4.min.css",
+              "node_modules/sweetalert2/src/sweetalert2.scss"
+            ],
+            "scripts": [
+              "node_modules/startbootstrap-sb-admin-2/vendor/jquery/jquery.min.js",
+              "node_modules/startbootstrap-sb-admin-2/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "node_modules/startbootstrap-sb-admin-2/vendor/jquery-easing/jquery.easing.min.js",
+              "node_modules/startbootstrap-sb-admin-2/js/sb-admin-2.min.js",
+              "node_modules/startbootstrap-sb-admin-2/vendor/chart.js/Chart.js",
+              "node_modules/startbootstrap-sb-admin-2/js/demo/chart-area-demo.js",
+              "node_modules/startbootstrap-sb-admin-2/js/demo/chart-pie-demo.js",
+              "node_modules/startbootstrap-sb-admin-2/js/demo/datatables-demo.js",
+              "node_modules/startbootstrap-sb-admin-2/vendor/datatables/jquery.dataTables.min.js",
+              "node_modules/startbootstrap-sb-admin-2/vendor/datatables/dataTables.bootstrap4.min.js",
+              "node_modules/sweetalert2/dist/sweetalert2.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "thai-red:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "thai-red:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "thai-red:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "thai-red:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "thai-red:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "thai-red"
+}

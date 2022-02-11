@@ -1,0 +1,102 @@
+<!-- <p>add-product works!</p> -->
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">คัดแยกถุงเลือด: รหัสถุงเลือดที่: {{addProductForm.value.BloodBag_ID}}, กรุ๊ปเลือด: {{addProductForm.value.Bgroup}}</h6>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+                <!-- form -->
+
+                <!-- Product_ID // hidden -->
+                <input type="hidden" class="form-control" formControlName="Product_ID" >
+
+
+                 <!-- Plasma // 0-1 ถุง -->
+                <div class="form-group row">
+                    <div class="form-group col-sm-6 mb-3 mb-sm-0">
+                        <label>จำนวนถุง พลาสม่า</label>
+                        <div class="ui-select">
+                            <select  formControlName="Plasma" class="form-control">
+                                <option value=0>ไม่ได้ซักถุง</option>
+                                <option value=1>1 ถุง (75 ml เท่านั้น)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- BCs // 0-1 ถุง -->
+                <div class="form-group row">
+                    <div class="form-group col-sm-6 mb-3 mb-sm-0">
+                        <label>จำนวนถุง เม็ดเลือดแดง</label>
+                        <div class="ui-select">
+                            <select  formControlName="BCs" class="form-control">
+                                <option value=0>ไม่ได้ซักถุง</option>
+                                <option value=1>1 ถุง (75 ml เท่านั้น)</option>
+                            </select>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+
+
+                <!-- Platelets // 0-1 ถุง -->
+                <div class="form-group row">
+                    <div class="form-group col-sm-6 mb-3 mb-sm-0">
+                        <label>จำนวนถุง เกร็ดเลือด</label>
+                        <div class="ui-select">
+                            <select  formControlName="Platelets" class="form-control">
+                                <option value=0>ไม่ได้ซักถุง</option>
+                                <option value=1>1 ถุง (75 ml เท่านั้น)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Bgroup // setValue-->
+                <input type="hidden" class="form-control" formControlName="Bgroup">
+
+               <!-- BloodBag_ID // setValue-->
+               <input type="hidden" class="form-control" formControlName="BloodBag_ID" >
+
+
+
+                <!-- volum  // ประมาณ 50 - 150 ml ต่อถุง-->
+                <input type="hidden" class="form-control" formControlName="volum" value=75>
+
+
+                <!-- Test_Status  // ให้เป็น =1 เลย  hidden-->
+                <input type="hidden" class="form-control" formControlName="Test_Status" value=1>
+
+
+
+                <!-- Status // default = 1 ใน database  hidden-->
+                <input type="hidden" class="form-control" formControlName="Status">
+
+
+
+
+                <!-- submit -->
+                <button type="submit" class="btn btn-primary mr-1">คัดแยก</button>
+                <!-- back -->
+                <a routerLink="/member/manage-bloodbag" class="btn btn-dark">Back</a>
+                <!-- /form -->
+
+            </form>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+

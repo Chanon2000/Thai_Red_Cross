@@ -1,0 +1,92 @@
+<!-- <p>manage-donor works!</p> -->
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">ข้อมูลผู้บริจาค</h1>
+        <a routerLink="/member/create-donor" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                class="fas  fa-sm text-white-50"></i>เพิ่มข้อมูลผู้บริจาค</a>
+    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">ตารางข้อมูลผู้บริจาคทั้งหมด(ผู้ลงชื่อเข้าบริจาค)</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive mr-10">
+                <div style="height:500px;width:auto;overflow:auto;" >
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>เลขบัตรประชาชน</th>
+                                <th>ชื่อ นามสกุล</th>
+                                <!-- <th>นามสกุล</th> -->
+                                <!-- <th>วันเกิด</th> -->
+                                <!-- <th>เพศ</th> -->
+                                <th>เพศ : อายุ : นำ้หนัก : กรุ๊ปเลือด</th>
+                                <!-- <th>นำ้หนัก</th> -->
+                                <!-- <th>โรคประจำตัว</th> -->
+                                <!-- <th>กรุ๊ปเลือด</th> -->
+                                
+                                <!-- <th>ที่อยู่</th> -->
+                                <!-- <th>เบอร์โทรศัพท์</th> -->
+                                <!-- <th>e-mail</th> -->
+                                <!-- <th>อาชีพ</th> -->
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>เลขบัตรประชาชน</th>
+                                <th>ชื่อ นามสกุล</th>
+                                <!-- <th>นามสกุล</th> -->
+                                <!-- <th>วันเกิด</th> -->
+                                <!-- <th>เพศ</th> -->
+                                <th>เพศ : อายุ : นำ้หนัก : กรุ๊ปเลือด</th>
+                                <!-- <th>นำ้หนัก</th> -->
+                                <!-- <th>โรคประจำตัว</th> -->
+                                <!-- <th>กรุ๊ปเลือด</th> -->
+                                
+                                <!-- <th>ที่อยู่</th> -->
+                                <!-- <th>เบอร์โทรศัพท์</th> -->
+                                <!-- <th>e-mail</th> -->
+                                <!-- <th>อาชีพ</th> -->
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr  *ngFor="let d of donors">
+                                <td>{{d.NIN}}</td>
+                                <td>{{d.firstName}} {{d.lastName}}</td>
+                                <!-- <td>{{d.lastName}}</td> -->
+                                <!-- <td>{{d.Brithday}}</td> -->
+                                <td *ngIf="d.sex == 0">ชาย : {{d.Age}} ปี : {{d.weight}} กิโลกรัม : {{d.Bgroup}}</td>
+                                <td *ngIf="d.sex == 1">หญิง : {{d.Age}} ปี : {{d.weight}} กิโลกรัม : {{d.Bgroup}}</td>
+                                <!-- <td>{{d.Age}} ปี : {{d.weight}} กิโลกรัม : {{d.Bgroup}}</td> -->
+                                <!-- <td>{{d.weight}}</td> -->
+                                <!-- <td>{{d.Cdisease}}</td> -->
+                                <!-- <td>{{d.Bgroup}}</td> -->
+                                
+                                <!-- <td>{{d.Address}}</td> -->
+                                <!-- <td>{{d.PhoneNumber}}</td> -->
+                                <!-- <td>{{d.Email}}</td> -->
+                                <!-- <td>{{d.Career}}</td> -->
+                                <td>
+                                    <button type="button" class="btn btn-info" routerLink="/member/edit-donor/{{d.Donor_ID}}">ข้อมูล</button>
+                                    <button type="button" class="btn btn-success ml-1" routerLink="/member/add-blood-bag/{{d.Donor_ID}}">บจ. โลหิต</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- table -->
+
+
+
+    <!-- botton ต้องส่ง id (idของ donor) เมื่อกด "แก้ไข" -->
+    <!-- botton ต้องส่ง id (idของ donor) เมื่อกด "status" -->
+
+
+
+<!-- /table -->
